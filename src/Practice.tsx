@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { questions as allQuestions } from "./questions";
+import { questions as allQuestions, Question } from "./questions"; // Assuming questions and Question are exported from "./questions"
 
-const shuffleArray = (array: any[]) => {
+const shuffleArray = (array: Question[]): Question[] => {
     return array.sort(() => Math.random() - 0.5);
 };
 
 const Practice: React.FC = () => {
-    const [shuffledQuestions, setShuffledQuestions] = useState(() => shuffleArray([...allQuestions]));
+    const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>(() =>
+        shuffleArray([...allQuestions])
+    );
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
     const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
@@ -17,12 +19,12 @@ const Practice: React.FC = () => {
         setShuffledQuestions(shuffleArray([...allQuestions]));
     }, []);
 
-    const handleOptionChange = (index: number) => {
+    const handleOptionChange = (index: number): void => {
         setSelectedOption(index);
         setFeedbackMessage(null); // Clear feedback when a new option is selected
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (): void => {
         if (selectedOption === shuffledQuestions[currentQuestionIndex].correctOption) {
             setFeedbackMessage("Correct answer!");
             setFeedbackColor("#66bb6a"); // green
@@ -41,7 +43,7 @@ const Practice: React.FC = () => {
         }
     };
 
-    const resetPractice = () => {
+    const resetPractice = (): void => {
         setShuffledQuestions(shuffleArray([...allQuestions])); // Reshuffle questions
         setCurrentQuestionIndex(0);
         setSelectedOption(null);
@@ -52,7 +54,7 @@ const Practice: React.FC = () => {
 
     return (
         <div style={{ fontFamily: "Arial" }}>
-            <h2 style={{color: "#2976AF"}}>Practice Mode</h2>
+            <h2 style={{ color: "#2976AF" }}>Practice Mode</h2>
             {isPracticeComplete ? (
                 <div>
                     <p style={{ color: "#388e3c", fontSize: "1.5rem" }}>
@@ -65,7 +67,7 @@ const Practice: React.FC = () => {
                     <h3>Question {currentQuestionIndex + 1} of {shuffledQuestions.length}</h3>
                     <h4 style={{ textAlign: "left" }}>{shuffledQuestions[currentQuestionIndex].text}</h4>
                     <div style={{ marginBottom: "20px" }}>
-                        {shuffledQuestions[currentQuestionIndex].options.map((option, index) => (
+                        {shuffledQuestions[currentQuestionIndex].options.map((option: string, index: number) => (
                             <div key={index}>
                                 <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", textAlign: "left" }}>
                                     <input
