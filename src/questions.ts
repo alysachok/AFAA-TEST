@@ -296,4 +296,60 @@ export const questions: Question[] = [
     options: ["Nervous System", "Muscular System", "Skeletal System"],
     correctOption: 2, // Skeletal System
   },
+  {
+    id: 38,
+    text: "Which method is described as a technique used to express/validate how hard a participant feels they are working during exercise?",
+    options: [
+      "Rate of Perceived Exertion (RPE)",
+      "Talk Test",
+      "Dyspnea Scale",
+      "Observation",
+    ],
+    correctOption: 0, // Rate of Perceived Exertion (RPE)
+  },
+  {
+    id: 39,
+    text: "Which method is a self-evaluation of intensity associated with the ability to talk while exercising?",
+    options: [
+      "Rate of Perceived Exertion (RPE)",
+      "Talk Test",
+      "Dyspnea Scale",
+      "Observation",
+    ],
+    correctOption: 1, // Talk Test
+  },
+  {
+    id: 40,
+    text: "Which method uses a subjective scale representing how participants perceive difficulty in terms of breathing?",
+    options: [
+      "Rate of Perceived Exertion (RPE)",
+      "Talk Test",
+      "Dyspnea Scale",
+      "Observation",
+    ],
+    correctOption: 2, // Dyspnea Scale
+  },
+  {
+    id: 41,
+    text: "Which method involves the instructor watching for physical signs of overexertion?",
+    options: [
+      "Rate of Perceived Exertion (RPE)",
+      "Talk Test",
+      "Dyspnea Scale",
+      "Observation",
+    ],
+    correctOption: 3, // Observation
+  },
+  {
+    id: 42,
+    text: "Which of the following exercis are more appropriate for a strength and resistance class? Select the 1 that apply.",
+    options: ["Squat Jumps", "Push Ups", "Sprints", "Warrior 1", "Attacks"],
+    correctOption: 1, // Push Ups
+  },
+  {
+    id: 43,
+    text: "At what intensity will participants perform a 3-minute recovery interval before transitioning into a 1-minute interval of 76-85% of the HRmax?",
+    options: ["45-55%", "55-65%", "65-75%", "86-95%"],
+    correctOption: 2, // 65-75%
+  },
 ];
